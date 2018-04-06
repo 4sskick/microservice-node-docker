@@ -23,4 +23,4 @@ module.exports.start = (configOption) => {
             resolve(server);
         });
     });
-}
+};

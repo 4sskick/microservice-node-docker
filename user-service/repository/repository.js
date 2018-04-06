@@ -62,5 +62,5 @@ module.exports.connect = (connectionConfig) => {
         if (!connectionConfig.port) throw new Error(`A PORT ${ErrorReason}`);
 
         resolve(new Repository(mysql.createConnection(connectionConfig)));
-    })
-}
+    });
+};

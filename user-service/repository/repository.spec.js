@@ -46,6 +46,6 @@ describe("Repository", () => {
                 password: 'root',
                 port: 3306
             }).should.be.resolved()
-        ])
-    })
+        ]);
+    });
 });

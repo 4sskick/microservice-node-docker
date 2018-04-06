@@ -10,36 +10,32 @@ describe("Repository", () => {
         return Promise.all([
             repository.connect({
                 // host: '127.0.0.1',
-                database: 'node-demo-user',
                 user: 'root',
                 password: 'root',
                 port: 3306
-            }).should.be.rejectedWith(/host/),
+            }).should.be.rejectedWith(/A HOST must be specified/),
 
             repository.connect({
                 host: '127.0.0.1',
-                database: 'node-demo-user',
                 // user: 'root',
                 password: 'root',
                 port: 3306
-            }).should.be.rejectedWith(/user/),
+            }).should.be.rejectedWith(/A USER must be specified/),
 
             repository.connect({
                 host: '127.0.0.1',
-                database: 'node-demo-user',
                 user: 'root',
                 // password: 'root',
                 port: 3306
-            }).should.be.rejectedWith(/password/),
+            }).should.be.rejectedWith(/A PASSWORD must be specified/),
 
             repository.connect({
                 host: '127.0.0.1',
-                database: 'node-demo-user',
                 user: 'root',
                 password: 'root',
                 // port: 3306
-            }).should.be.rejectedWith(/port/)
-        ])
+            }).should.be.rejectedWith(/A PORT must be specified/),
+        ]);
     });
 
     it('Should return ok', () => {

@@ -3,15 +3,16 @@ var should = require('should');
 var server = require('./server');
 
 describe("Server connection", () => {
-    it('should require port to start', () => {
-        return server.start({
-            repository: {}
-        }).should.be.rejectedWith(/port/)
-    });
 
-    it('should require repository to start', () => {
-        return server.start({
-            port: {}
-        }).should.be.rejectedWith(/port/)
+    it('Should be throw an Exception Error, if it is not provided by repository or port', () => {
+        return Promise.all([
+            server.start({
+                repository: {}
+            }).should.be.rejectedWith(/A server must be start with a specific port/),
+
+            server.start({
+                port: {}
+            }).should.be.rejectedWith(/A server must be start with a connected repository/),
+        ]);
     });
 });

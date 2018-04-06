@@ -23,7 +23,7 @@ module.exports = (app, configOption) => {
         //get the email
         var email = req.query.email;
         // if (!email) throw new Error(`Email must be specified when searching, e.g: '/search?email=homer@thesimpsons.com'.`);
-        if(!email) res.status(500).send({
+        if(!email) res.status(401).send({
             status:`Fatal Error, query can not be accepted e.g: '/search?email=homer@thesimpsons.com'`
         });
 

@@ -4,6 +4,7 @@ var server = require('../server/server');
 
 describe('User API', () => {
     var app = null;
+
     var testUser = [{
         email: 'homer@thesimpsons.com',
         phone_number: '+1 234 5678'
@@ -16,7 +17,7 @@ describe('User API', () => {
         getUsers: () => {
             return Promise.resolve(testUser);
         },
-        getUserByEmail: (email) => {
+        getUserbyEmail: (email) => {
             return Promise.resolve(testUser.find((user) => {
                 return user.email === email;
             }));
@@ -54,13 +55,13 @@ describe('User API', () => {
 
     it('Should return status code 400', (done) => {
         request(app)
-            .get("/search?email=septian.adi@tapestrix.net")
+            .get('/search?email=septian.adi@tapestrix.net')
             .expect(400, done);
     });
 
     it('Should return status code 200', (done) => {
         request(app)
-            .get("/search?email=homer@thesimpsons.com")
+            .get('/search?email=homer@thesimpsons.com')
             .expect(200, done);
     });
 });
